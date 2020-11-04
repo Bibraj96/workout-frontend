@@ -10,12 +10,21 @@ export const setCurrentUser = user => { // we set the user in the argument equal
 export const login = credentials => {
   console.log("credentials are:", credentials)
   return dispatch => {
-    return fetch("http:localhost:3000/api/v1/login", {
+    return fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify()
+      body: JSON.stringify(credentials)
     })
+    .then(res => res.json())
+    .then(user => {
+      if (user.error) {
+        alert(user.error)
+      } else {
+        dispatch(setCurrentUser(user))
+      }
+    })
+    .catch(console.log)
   }
 }
