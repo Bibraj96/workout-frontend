@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { updateLoginForm } from '../actions/loginForm'
 
 const Login = ({username, password}) => {
   return (
@@ -22,4 +23,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps, {updateLoginForm})(Login)
+// updateLoginForm again, is using the truncated version of updateLoginForm: updateLoginForm
