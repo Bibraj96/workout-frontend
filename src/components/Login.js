@@ -1,26 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { updateLoginForm } from '../actions/loginForm'
+import { updateLoginForm } from '../actions/loginForm.js'
+import { login } from '../actions/currentUser.js'
 
 // We're using the same handler for both username and password, so we use the event to dynamically grab the name and the value
 // so we send an object that represents current state of the form, ...loginForm, from the state
 // then we update the name and its value, [name]: value
 
-const Login = ({loginForm, updateLoginForm }) => {
+const Login = ({loginFormData, updateLoginForm, login }) => {
 
   const handleInputChange = event => {
     const { name, value } = event.target
     const updatedFormInfo = {
-      ...loginForm,
+      ...loginFormData,
       [name]: value
     }
     updateLoginForm(updatedFormInfo)
   }
 
+  const handleSubmit = event => {
+    event.preventDefault()
+    login(loginFormData)
+  }
+
   return (
-    <form onSubmit={undefined}>
-      <input placeholder="username" type="text" name="username" value={loginForm.username}  onChange={handleInputChange}/>
-      <input placeholder="password" type="text" name="password" value={loginForm.password}  onChange={handleInputChange}/>
+    <form onSubmit={handleSubmit}>
+      <input placeholder="username" type="text" name="username" value={loginFormData.username}  onChange={handleInputChange}/>
+      <input placeholder="password" type="text" name="password" value={loginFormData.password}  onChange={handleInputChange}/>
       <input type="submit" value="Log In"/>
     </form>
   )
@@ -32,9 +38,9 @@ const Login = ({loginForm, updateLoginForm }) => {
 // You can either use props.username, or use destructuring
 const mapStateToProps = state => {
   return {
-    loginForm: state.loginForm
+    loginFormData: state.loginForm
   }
 }
 
-export default connect(mapStateToProps, {updateLoginForm})(Login)
+export default connect(mapStateToProps, { updateLoginForm, login })(Login)
 // updateLoginForm again, is using the truncated version of updateLoginForm: updateLoginForm
