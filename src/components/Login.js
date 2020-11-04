@@ -2,11 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { updateLoginForm } from '../actions/loginForm'
 
-const Login = ({username, password}) => {
+// We're using the same handler for both username and password, so we use the event to dynamically grab the name and the value
+// so we send an object that represents current state of the form, ...loginForm, from the state
+// then we update the name and its value, [name]: value
+
+const Login = ({loginForm, updateLoginForm }) => {
+
+  const handleInputChange = event => {
+    const { name, value } = event.target
+    const updatedFormInfo = {
+      ...loginForm,
+      [name]: value
+    }
+    updateLoginForm(updatedFormInfo)
+  }
+
   return (
     <form onSubmit={undefined}>
-      <input placeholder="username" type="text" name="username" value={username}  onChange={undefined}/>
-      <input placeholder="password" type="text" name="password" value={password}  onChange={undefined}/>
+      <input placeholder="username" type="text" name="username" value={loginForm.username}  onChange={handleInputChange}/>
+      <input placeholder="password" type="text" name="password" value={loginForm.password}  onChange={handleInputChange}/>
       <input type="submit" value="Log In"/>
     </form>
   )
@@ -18,8 +32,7 @@ const Login = ({username, password}) => {
 // You can either use props.username, or use destructuring
 const mapStateToProps = state => {
   return {
-    username: state.loginForm.username,
-    password: state.loginForm.password
+    loginForm: state.loginForm
   }
 }
 
