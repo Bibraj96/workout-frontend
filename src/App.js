@@ -12,6 +12,7 @@ class App extends Component {
 
   render() {
     return (
+      //maybe refactor to navbar
       this.props.currentUser ? <Logout /> : <Login />
     );
   }
