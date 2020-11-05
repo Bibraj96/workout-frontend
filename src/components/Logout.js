@@ -11,4 +11,8 @@ const Logout = ({ logout }) => {
   )
 }
 
-export default connect(null, { logout })(Login)
+export default connect(null, { logout })(Logout)
+
+// need:
+// action creator
+// case statement in currentuser reducer
