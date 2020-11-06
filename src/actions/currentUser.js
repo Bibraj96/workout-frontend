@@ -1,3 +1,5 @@
+import { resetLoginForm } from "./loginForm.js"
+
 // synchronous action creators
 export const setCurrentUser = user => { // we set the user in the argument equal to the user in the store
   return {
@@ -61,6 +63,7 @@ export const getCurrentUser = () => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
+          dispatch(resetLoginForm)
         }
       })
       .catch(console.log)
