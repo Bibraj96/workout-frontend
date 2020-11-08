@@ -1,6 +1,6 @@
-export const setMyWorkouts = workouts => { // we set the user in the argument equal to the user in the store
+export const setMyWorkouts = workouts => {
   return {
     type: 'SET_MY_WORKOUTS',
-    workouts // again, this is just the truncated syntax of user: user
+    workouts
   }
 }
