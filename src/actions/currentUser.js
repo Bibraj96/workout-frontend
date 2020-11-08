@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js"
+import { getMyWorkouts } from "./myWorkouts.js"
 
 // synchronous action creators
 export const setCurrentUser = user => { // we set the user in the argument equal to the user in the store
@@ -33,6 +34,7 @@ export const login = credentials => {
       } else {
         dispatch(setCurrentUser(user))
         dispatch(resetLoginForm())
+        dispatch(getMyWorkouts())
       }
     })
     .catch(console.log)
@@ -64,6 +66,7 @@ export const getCurrentUser = () => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
+          dispatch(getMyWorkouts())
         }
       })
       .catch(console.log)
