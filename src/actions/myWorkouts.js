@@ -22,7 +22,7 @@ export const getMyWorkouts = () =>  {
           alert(workouts.error)
         } else {
           console.log(workouts)
-          dispatch(setMyWorkouts([workouts]))
+          dispatch(setMyWorkouts(workouts))
         }
       })
       .catch(console.log)
