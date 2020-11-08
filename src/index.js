@@ -7,12 +7,14 @@ import { Provider } from 'react-redux'
 import usersReducer from './reducers/userReducer.js' // I can name this whatever I want b/c it's a defualt export from userReducer.js
 import currentUser from './reducers/currentUser.js'
 import loginForm from './reducers/loginForm.js'
+import myWorkouts from './reducers/myWorkouts.js'
 
 const reducer = combineReducers({
   // setting state equal to what the reducer returns
   users: usersReducer,
   currentUser,
-  loginForm
+  loginForm,
+  myWorkouts
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
