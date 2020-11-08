@@ -32,6 +32,7 @@ export const login = credentials => {
         alert(user.error)
       } else {
         dispatch(setCurrentUser(user))
+        dispatch(resetLoginForm())
       }
     })
     .catch(console.log)
@@ -63,7 +64,6 @@ export const getCurrentUser = () => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
-          dispatch(resetLoginForm)
         }
       })
       .catch(console.log)
