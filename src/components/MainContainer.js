@@ -1,9 +1,10 @@
 import React from 'react'
+import MyWorkouts from './MyWorkouts.js'
 
 const MainContainer = () => {
   return (
     <div className="MainContainer">
-      Main Container
+      <MyWorkouts />
     </div>
   )
 }
