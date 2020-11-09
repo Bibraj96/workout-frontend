@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js"
+import { resetSignupForm } from "./signupForm.js"
 import { getMyWorkouts } from "./myWorkouts.js"
 
 // synchronous action creators
@@ -34,6 +35,31 @@ export const login = credentials => {
       } else {
         dispatch(setCurrentUser(user))
         dispatch(resetLoginForm())
+        dispatch(getMyWorkouts())
+      }
+    })
+    .catch(console.log)
+  }
+}
+
+export const signup = credentials => {
+  console.log("credentials are:", credentials)
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/signup", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(credentials)
+    })
+    .then(res => res.json())
+    .then(user => {
+      if (user.error) {
+        alert(user.error)
+      } else {
+        dispatch(setCurrentUser(user))
+        dispatch(resetSignupForm())
         dispatch(getMyWorkouts())
       }
     })
