@@ -1,16 +1,13 @@
 import React from 'react';
-import Login from './Login.js'
-import Logout from './Logout.js'
 import { connect } from 'react-redux'
+import Logout from './Logout.js'
 
 const NavBar = ({ currentUser }) => {
 
   return (
     <div className="NavBar">
       {currentUser ? <h4>Get active, {currentUser.username}!</h4> : ""}
-      <button>Log In</button>
-      OR
-      <button>Sign Up</button>
+      <Logout />
 
       {/*currentUser ? <Logout /> : <Login />*/}
     </div>
