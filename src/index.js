@@ -8,13 +8,15 @@ import usersReducer from './reducers/userReducer.js' // I can name this whatever
 import currentUser from './reducers/currentUser.js'
 import loginForm from './reducers/loginForm.js'
 import myWorkouts from './reducers/myWorkouts.js'
+import signupForm from './reducers/signupForm.js'
 
 const reducer = combineReducers({
   // setting state equal to what the reducer returns
   users: usersReducer,
   currentUser,
   loginForm,
-  myWorkouts
+  myWorkouts,
+  signupForm
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
