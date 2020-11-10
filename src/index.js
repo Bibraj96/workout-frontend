@@ -9,6 +9,7 @@ import currentUser from './reducers/currentUser.js'
 import loginForm from './reducers/loginForm.js'
 import myWorkouts from './reducers/myWorkouts.js'
 import signupForm from './reducers/signupForm.js'
+import newWorkoutForm from './reducers/newWorkoutForm.js'
 
 const reducer = combineReducers({
   // setting state equal to what the reducer returns
@@ -16,7 +17,8 @@ const reducer = combineReducers({
   currentUser,
   loginForm,
   myWorkouts,
-  signupForm
+  signupForm,
+  newWorkoutForm
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
