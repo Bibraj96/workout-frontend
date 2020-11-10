@@ -29,7 +29,8 @@ class App extends Component {
             <Route exact path='/signup' component={Signup}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/' render={() => loggedIn ? <MyWorkouts /> : <Home />}/>
-            <Route exact path='/my-workouts' component={MyWorkouts}/>
+            <Route exact path='/workouts' component={MyWorkouts}/>
+            <Route exact path='/workouts/new' component={NewWorkout}/>
           </Switch>
         </div>
       </Router>
