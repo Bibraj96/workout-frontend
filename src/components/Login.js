@@ -7,7 +7,7 @@ import { login } from '../actions/currentUser.js'
 // so we send an object that represents current state of the form, ...loginForm, from the state
 // then we update the name and its value, [name]: value
 
-const Login = ({loginFormData, updateLoginForm, login }) => {
+const Login = ({loginFormData, updateLoginForm, login, history }) => {
 
   const handleInputChange = event => {
     const { name, value } = event.target
@@ -20,7 +20,7 @@ const Login = ({loginFormData, updateLoginForm, login }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    login(loginFormData)
+    login(loginFormData, history)
   }
 
   return (
