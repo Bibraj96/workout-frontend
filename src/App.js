@@ -22,8 +22,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          { loggedIn ? <Logout /> : null }
           <NavBar />
-          <MainContainer />
+          {/* <MainContainer /> */}
           <Switch>
             <Route exact path='/signup' component={Signup}/>
             <Route exact path='/login' component={Login}/>
