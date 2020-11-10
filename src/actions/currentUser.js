@@ -17,7 +17,7 @@ export const clearCurrentUser = () => {
 }
 
 // asynchronous action creators
-export const login = credentials => {
+export const login = (credentials, history) => {
   console.log("credentials are:", credentials)
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/login", {
@@ -36,13 +36,14 @@ export const login = credentials => {
         dispatch(setCurrentUser(user))
         dispatch(resetLoginForm())
         dispatch(getMyWorkouts())
+        history.push('/')
       }
     })
     .catch(console.log)
   }
 }
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
   console.log("credentials are:", credentials)
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/signup", {
@@ -61,6 +62,7 @@ export const signup = credentials => {
         dispatch(setCurrentUser(user))
         dispatch(resetSignupForm())
         dispatch(getMyWorkouts())
+        history.push('/')
       }
     })
     .catch(console.log)
