@@ -3,6 +3,7 @@ import WorkoutCard from './WorkoutCard.js'
 import { connect } from 'react-redux'
 
 const MyWorkouts = ({ myWorkouts }) => {
+  console.log(myWorkouts)
   const workoutCards = myWorkouts.map(w => <WorkoutCard workout={w} key={w.id}/>)
   return (
     workoutCards
