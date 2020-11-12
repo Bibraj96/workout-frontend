@@ -1,12 +1,15 @@
 import React from 'react';
-import { updateNewWorkoutForm } from '../actions/newWorkoutForm.js';
-import { connect } from 'react-redux'
+import { updateNewWorkoutForm } from '../actions/newWorkoutForm.js'; // 1) grab action creator
+import { connect } from 'react-redux' 
 
-const NewWorkoutForm = ({ title, date, history }) => {
+
+// Redux gives us a prop called updateNewWorkoutForm which, when invoked, Redux will dispatch
+const NewWorkoutForm = ({ formData, updateNewWorkoutForm, history }) => {
+  const {title, date} = formData
 
   const handleChange = event => {
     const { name, value } = event.target
-    updateNewWorkoutForm(name, value)
+    updateNewWorkoutForm(name, value) // 4) not just an invocation of action creator, this is redux dispatching it with appropriate args.
   }
   
   const handleSubmit = event => {
@@ -22,7 +25,7 @@ const NewWorkoutForm = ({ title, date, history }) => {
       value={title}
       /><br/>
       <input
-      placeholder="Date" 
+      placeholder="YYYY-MM-DD" 
       name="date"
       onChange={handleChange}
       value={date}
@@ -34,11 +37,11 @@ const NewWorkoutForm = ({ title, date, history }) => {
 )}
 
 const mapStateToProps = state => {
-  const { title, date } = state.newWorkoutForm
   return {
-    title,
-    date
+    formData: state.newWorkoutForm
   }
 }
+
+// 2) pass action creator to redux's connect fn
 
 export default connect(mapStateToProps, { updateNewWorkoutForm })(NewWorkoutForm);
