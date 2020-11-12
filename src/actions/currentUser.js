@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginForm.js"
 import { resetSignupForm } from "./signupForm.js"
-import { getMyWorkouts } from "./myWorkouts.js"
+import { getMyWorkouts, clearWorkouts } from "./myWorkouts.js"
 
 // synchronous action creators
 export const setCurrentUser = user => { // we set the user in the argument equal to the user in the store
@@ -69,9 +69,10 @@ export const signup = (credentials, history) => {
   }
 }
 
-export const logout = () => {
+export const logout = event => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearWorkouts())
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include", //sends cookies back
       method: "DELETE"
