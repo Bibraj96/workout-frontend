@@ -18,7 +18,7 @@ const NewWorkoutForm = ({ formData, updateNewWorkoutForm, createWorkout, userId,
     createWorkout({
       ...formData,
       userId
-    })
+    }, history)
   }
 
   return (
