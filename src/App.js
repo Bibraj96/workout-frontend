@@ -10,6 +10,7 @@ import Logout from './components/Logout.js'
 import Signup from './components/Signup.js'
 import MyWorkouts from './components/MyWorkouts.js'
 import NewWorkoutForm from './components/NewWorkoutForm.js'
+import WorkoutCard from './components/WorkoutCard.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { loggedIn, workouts } = this.props
     return (
       <Router>
         <div className="App">
@@ -31,6 +32,12 @@ class App extends Component {
             <Route exact path='/' render={() => loggedIn ? <MyWorkouts /> : <Home />}/>
             <Route exact path='/workouts' component={MyWorkouts}/>
             <Route exact path='/workouts/new' component={NewWorkoutForm}/>
+            <Route exact path='/workouts/:id' render={ props => {
+              const workout = workouts.find(workout => workout.id == props.match.params.id)
+              // console.log(props.match.params.id)
+              return <WorkoutCard workout={workout} {...props} />
+              }
+            }/>
           </Switch>
         </div>
       </Router>
@@ -40,7 +47,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    workouts: state.myWorkouts
   })
 }
 
