@@ -1,3 +1,5 @@
+import { resetNewWorkoutForm } from './newWorkoutForm'
+
 // synchronous action creators
 export const setMyWorkouts = workouts => {
   return {
@@ -42,7 +44,7 @@ export const getMyWorkouts = () =>  {
   }
 }
 
-export const createWorkout = workoutData => {
+export const createWorkout = (workoutData, history) => {
   return dispatch => {
     const snakeWorkoutData = { // Only needed this for user_id, but did it for the others to keep consistent
       title: workoutData.title,
@@ -58,7 +60,15 @@ export const createWorkout = workoutData => {
       body: JSON.stringify(snakeWorkoutData)
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(workout => {
+      if (workout.error) {
+        alert(workout.error)
+      } else {
+        dispatch(addWorkout(workout))
+        dispatch(resetNewWorkoutForm())
+        history.push(`/workouts/${workout.id}`)
+      }
+    })
     .catch(console.log)
   }
 }
