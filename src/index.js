@@ -4,7 +4,7 @@ import App from './App';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import usersReducer from './reducers/userReducer.js' // I can name this whatever I want b/c it's a defualt export from userReducer.js
+// import usersReducer from './reducers/userReducer.js' // I can name this whatever I want b/c it's a defualt export from userReducer.js
 import currentUser from './reducers/currentUser.js'
 import loginForm from './reducers/loginForm.js'
 import myWorkouts from './reducers/myWorkouts.js'
@@ -13,7 +13,7 @@ import newWorkoutForm from './reducers/newWorkoutForm.js'
 
 const reducer = combineReducers({
   // setting state equal to what the reducer returns
-  users: usersReducer,
+  // users: usersReducer,
   currentUser,
   loginForm,
   myWorkouts,
