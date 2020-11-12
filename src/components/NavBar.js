@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import Logout from './Logout.js'
 
-const NavBar = ({ currentUser }) => {
+const NavBar = ({ currentUser, loggedIn }) => {
 
   return (
     <div className="NavBar">
       {currentUser ? <h4>Get active, {currentUser.username}!</h4> : ""}
-
-      {/*currentUser ? <Logout /> : <Login />*/}
+      <NavLink exact active="true" to="/workouts">My Workouts</NavLink>
+      <NavLink exact active="true" to="/workouts/new">New Workout</NavLink>
+      { loggedIn ? <Logout /> : null }
     </div>
   )
 }
@@ -16,9 +19,10 @@ const NavBar = ({ currentUser }) => {
 // We can destructure currentUser out of our state and use the shorthand currentUser instead of currentUser: currentUser
 // Otherwise, state would be our arguement and we'd assign our key like this: currentUser: state.currentUser
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = ({ currentUser}) => {
   return {
-    currentUser
+    currentUser,
+    loggedIn: !!currentUser
   }
 }
 
