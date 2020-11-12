@@ -1,10 +1,13 @@
 import React from 'react'
-import WorkoutCard from './WorkoutCard.js'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const MyWorkouts = ({ myWorkouts }) => {
-  console.log(myWorkouts)
-  const workoutCards = myWorkouts.map(w => <WorkoutCard workout={w} key={w.id}/>)
+  const workoutCards = myWorkouts.length > 0 ?
+  myWorkouts.map(w =>
+    (<p key={w.id}><Link to={`/workouts/${w.id}`}>{w.title}<br/>{w.date}</Link></p>)) :
+  null
+
   return (
     workoutCards
   )
