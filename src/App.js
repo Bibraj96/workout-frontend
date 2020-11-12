@@ -23,8 +23,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          { loggedIn ? <Logout /> : null }
-          <NavBar />
+         { loggedIn ? <NavBar /> : null} 
           {/* <MainContainer /> */}
           <Switch>
             <Route exact path='/signup' component={Signup}/>
