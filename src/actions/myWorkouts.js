@@ -5,6 +5,11 @@ export const setMyWorkouts = workouts => {
     workouts
   }
 }
+export const clearWorkouts = workouts => {
+  return {
+    type: 'CLEAR_WORKOUTS'
+  }
+}
 
 // asynchronous action creators
 export const getMyWorkouts = () =>  {
