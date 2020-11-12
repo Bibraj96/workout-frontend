@@ -5,9 +5,17 @@ export const setMyWorkouts = workouts => {
     workouts
   }
 }
+
 export const clearWorkouts = workouts => {
   return {
     type: 'CLEAR_WORKOUTS'
+  }
+}
+
+export const addWorkout = workout => {
+  return {
+    type: 'ADD_WORKOUT',
+    workout
   }
 }
 
