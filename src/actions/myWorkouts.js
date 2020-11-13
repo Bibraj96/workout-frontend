@@ -21,6 +21,13 @@ export const addWorkout = workout => {
   }
 }
 
+export const updateWorkoutForm = workout => {
+  return {
+    type: 'UPDATE_WORKOUT',
+    workout
+  }
+}
+
 // asynchronous action creators
 export const getMyWorkouts = () =>  {
   return dispatch => {
@@ -65,6 +72,35 @@ export const createWorkout = (workoutData, history) => {
         alert(workout.error)
       } else {
         dispatch(addWorkout(workout))
+        dispatch(resetNewWorkoutForm())
+        history.push(`/workouts/${workout.id}`)
+      }
+    })
+    .catch(console.log)
+  }
+}
+
+export const updateWorkout = (workoutData, history) => {
+  return dispatch => {
+    const snakeWorkoutData = { // Only needed this for user_id, but did it for the others to keep consistent
+      title: workoutData.title,
+      date: workoutData.date,
+      user_id: workoutData.userId
+    }
+    return fetch(`http://localhost:3000/api/v1/workouts/${workoutData.workoutId}`, {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(snakeWorkoutData)
+    })
+    .then(res => res.json())
+    .then(workout => {
+      if (workout.error) {
+        alert(workout.error)
+      } else {
+        dispatch(updateWorkoutForm(workout))
         dispatch(resetNewWorkoutForm())
         history.push(`/workouts/${workout.id}`)
       }
