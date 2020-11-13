@@ -1,11 +1,11 @@
 import React from 'react';
-import { updateNewWorkoutForm } from '../actions/newWorkoutForm.js'; // 1) grab action creator
+import { updateNewWorkoutForm } from '../actions/workoutForm.js'; // 1) grab action creator
 import { createWorkout } from '../actions/myWorkouts'
 import { connect } from 'react-redux' 
 
 
 // Redux gives us a prop called updateNewWorkoutForm which, when invoked, Redux will dispatch
-const WorkoutForm = ({ formData, updateNewWorkoutForm, createWorkout, userId, history }) => {
+const WorkoutForm = ({ formData, updateNewWorkoutForm, createWorkout, userId, workout, history }) => {
   const {title, date} = formData
 
   const handleChange = event => {
