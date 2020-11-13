@@ -1,28 +1,23 @@
 import React from 'react';
 import { updateNewWorkoutForm } from '../actions/workoutForm.js'; // 1) grab action creator
-import { createWorkout } from '../actions/myWorkouts'
 import { connect } from 'react-redux' 
 
 
 // Redux gives us a prop called updateNewWorkoutForm which, when invoked, Redux will dispatch
-const WorkoutForm = ({ formData, updateNewWorkoutForm, createWorkout, userId, workout, history }) => {
+const WorkoutForm = ({ formData, updateNewWorkoutForm, userId, workout, history, handleSubmit }) => {
   const {title, date} = formData
 
   const handleChange = event => {
     const { name, value } = event.target
     updateNewWorkoutForm(name, value) // 4) not just an invocation of action creator, this is redux dispatching it with appropriate args.
   }
-  
-  const handleSubmit = event => {
-    event.preventDefault()
-    createWorkout({
-      ...formData,
-      userId
-    }, history)
-  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={event => {
+
+      console.log("Got to WorkoutForm")
+      handleSubmit(event, formData, userId, history)
+      }}>
       <input
       placeholder="Title" 
       name="title"
@@ -51,4 +46,4 @@ const mapStateToProps = state => {
 
 // 2) pass action creator to redux's connect fn
 
-export default connect(mapStateToProps, { updateNewWorkoutForm, createWorkout })(WorkoutForm);
+export default connect(mapStateToProps, { updateNewWorkoutForm })(WorkoutForm);
