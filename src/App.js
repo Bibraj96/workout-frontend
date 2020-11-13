@@ -43,7 +43,7 @@ class App extends Component {
             <Route exact path='/workouts/:id/edit' render={ props => {
               const workout = workouts.find(workout => workout.id == props.match.params.id)
               // console.log(props.match.params.id)
-              return <WorkoutForm workout={workout} {...props} />
+              return <EditWorkoutFormWrapper workout={workout} {...props} />
               }
             }/>
           </Switch>
