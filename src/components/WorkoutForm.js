@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 
 // Redux gives us a prop called updateNewWorkoutForm which, when invoked, Redux will dispatch
-const NewWorkoutForm = ({ formData, updateNewWorkoutForm, createWorkout, userId, history }) => {
+const WorkoutForm = ({ formData, updateNewWorkoutForm, createWorkout, userId, history }) => {
   const {title, date} = formData
 
   const handleChange = event => {
@@ -44,11 +44,11 @@ const NewWorkoutForm = ({ formData, updateNewWorkoutForm, createWorkout, userId,
 const mapStateToProps = state => {
   const userId = state.currentUser ? state.currentUser.id : ""
   return {
-    formData: state.newWorkoutForm,
+    formData: state.workoutForm,
     userId
   }
 }
 
 // 2) pass action creator to redux's connect fn
 
-export default connect(mapStateToProps, { updateNewWorkoutForm, createWorkout })(NewWorkoutForm);
+export default connect(mapStateToProps, { updateNewWorkoutForm, createWorkout })(WorkoutForm);
