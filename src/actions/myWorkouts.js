@@ -1,4 +1,4 @@
-import { resetNewWorkoutForm } from './newWorkoutForm'
+import { resetNewWorkoutForm } from './workoutForm'
 
 // synchronous action creators
 export const setMyWorkouts = workouts => {
