@@ -11,6 +11,8 @@ import Signup from './components/Signup.js'
 import MyWorkouts from './components/MyWorkouts.js'
 import WorkoutForm from './components/WorkoutForm.js'
 import WorkoutCard from './components/WorkoutCard.js'
+import NewWorkoutFormWrapper from './components/NewWorkoutFormWrapper.js'
+import EditWorkoutFormWrapper from './components/EditWorkoutFormWrapper.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
@@ -31,7 +33,7 @@ class App extends Component {
             <Route exact path='/login' component={Login}/>
             <Route exact path='/' render={() => loggedIn ? <MyWorkouts /> : <Home />}/>
             <Route exact path='/workouts' component={MyWorkouts}/>
-            <Route exact path='/workouts/new' component={WorkoutForm}/>
+            <Route exact path='/workouts/new' component={NewWorkoutFormWrapper}/>
             <Route exact path='/workouts/:id' render={ props => {
               const workout = workouts.find(workout => workout.id == props.match.params.id)
               // console.log(props.match.params.id)
