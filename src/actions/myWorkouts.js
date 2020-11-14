@@ -28,6 +28,13 @@ export const updateWorkoutForm = workout => { //this workout is the data coming 
   }
 }
 
+export const deleteWorkoutForm = workoutId => { //this workout is the data coming back from the backend
+  return {
+    type: 'DELETE_WORKOUT',
+    workoutId
+  }
+}
+
 // asynchronous action creators
 export const getMyWorkouts = () =>  {
   return dispatch => {
@@ -101,6 +108,28 @@ export const updateWorkout = (workoutData, history) => {
       } else {
         dispatch(updateWorkoutForm(workout))
         history.push(`/workouts/${workout.id}`)
+      }
+    })
+    .catch(console.log)
+  }
+}
+
+export const deleteWorkout = (workoutId, history) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/workouts/${workoutId}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+    .then(res => res.json())
+    .then(workout => {
+      if (workout.error) {
+        alert(workout.error)
+      } else {
+        dispatch(deleteWorkoutForm(workoutId))
+        history.push("/workouts")
       }
     })
     .catch(console.log)
