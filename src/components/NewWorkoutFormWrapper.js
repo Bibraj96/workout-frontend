@@ -5,16 +5,14 @@ import { connect } from 'react-redux'
 
 const NewWorkoutFormWrapper = ({history, createWorkout}) => {
 
-  const handleSubmit = (event, formData, userId, history) => {
-    event.preventDefault()
-    console.log("Got to WorkoutFormWrapper")
+  const handleSubmit = (formData, userId) => {
     createWorkout({
       ...formData,
       userId
     }, history)
   }
   
-  return <WorkoutForm history={history} handleSubmit={handleSubmit} />
+  return <WorkoutForm history={history} handleSubmit={handleSubmit} /> // we're passing these to the WorkoutForm to be invoked
 }
 
 export default connect(null, { createWorkout })(NewWorkoutFormWrapper);
