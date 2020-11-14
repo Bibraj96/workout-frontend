@@ -1,6 +1,6 @@
 import React from 'react';
 import { updateWorkout } from '../actions/myWorkouts'
-import { setEditWorkoutForm } from '../actions/workoutForm'
+import { setEditWorkoutForm, resetNewWorkoutForm } from '../actions/workoutForm'
 import WorkoutForm from './WorkoutForm.js'
 import { connect } from 'react-redux'
 // We need to make this a class component so that we can populate the edit form fields using a componentDidMount
@@ -11,21 +11,26 @@ class EditWorkoutFormWrapper extends React.Component {
     this.props.workout && this.props.setEditWorkoutForm(this.props.workout)
   }
 
-  handleSubmit = (event, formData, userId, history) => {
-    const { updateWorkout, workout } = this.props
-    event.preventDefault()
-    console.log("Got to WorkoutFormWrapper")
+  componentDidUpdate(preProps) {
+    this.props.workout && !preProps.workout && this.props.setEditWorkoutForm(this.props.workout)
+  }
+
+  componentWillUnmount() {
+    this.props.resetNewWorkoutForm()
+  }
+
+  handleSubmit = (formData) => {
+    const { updateWorkout, workout, history } = this.props
     updateWorkout({
       ...formData,
-      workoutId: workout.id,
-      userId
+      workoutId: workout.id
     }, history)
   }
   
   render() {
     const { handleSubmit, history } = this.props;
-    return <WorkoutForm editMode history={history} handleSubmit={handleSubmit} />
+    return <WorkoutForm editMode handleSubmit={this.handleSubmit} /> // we're passing these to the WorkoutForm to be invoked
   }
 }
 
-export default connect(null, { updateWorkout, setEditWorkoutForm })(EditWorkoutFormWrapper);
+export default connect(null, { updateWorkout, setEditWorkoutForm, resetNewWorkoutForm })(EditWorkoutFormWrapper);
