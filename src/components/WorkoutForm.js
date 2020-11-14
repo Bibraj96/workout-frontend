@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 
 // Redux gives us a prop called updateNewWorkoutForm which, when invoked, Redux will dispatch
-const WorkoutForm = ({ formData, updateNewWorkoutForm, userId, workout, history, handleSubmit, editMode }) => {
+const WorkoutForm = ({ formData, updateNewWorkoutForm, userId, workout, handleSubmit, editMode }) => {
   const {title, date} = formData
 
   const handleChange = event => {
@@ -14,9 +14,9 @@ const WorkoutForm = ({ formData, updateNewWorkoutForm, userId, workout, history,
 
   return (
     <form onSubmit={event => {
-
+      event.preventDefault()
       console.log("Got to WorkoutForm")
-      handleSubmit(event, formData, userId, history)
+      handleSubmit(formData) //passed down from either wrapper and invoked here
       }}>
       <input
       placeholder="Title" 
