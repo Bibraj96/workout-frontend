@@ -5,8 +5,7 @@ export default (state = [], action) => {
     case "ADD_WORKOUT":
       return state.concat(action.workout)
     case "UPDATE_WORKOUT":
-      console.log("in update workout")
-      return state
+      return state.map(workout => workout.id === action.workout.id ? action.workout : workout)
     case "CLEAR_WORKOUTS":
       return []
     default:
