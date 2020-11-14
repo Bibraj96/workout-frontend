@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateWorkout } from '../actions/myWorkouts'
+import { updateWorkout, deleteWorkout } from '../actions/myWorkouts'
 import { setEditWorkoutForm, resetNewWorkoutForm } from '../actions/workoutForm'
 import WorkoutForm from './WorkoutForm.js'
 import { connect } from 'react-redux'
@@ -28,9 +28,13 @@ class EditWorkoutFormWrapper extends React.Component {
   }
   
   render() {
-    const { handleSubmit, history } = this.props;
-    return <WorkoutForm editMode handleSubmit={this.handleSubmit} /> // we're passing these to the WorkoutForm to be invoked
+    const { workout, handleSubmit, deleteWorkout, history } = this.props;
+    const workoutId = workout ? workout.id : null
+    return <div>
+              <WorkoutForm editMode handleSubmit={this.handleSubmit} /> {/* we're passing these to the WorkoutForm to be invoked*/}
+              <button onClick={() => deleteWorkout(workoutId, history)}>Delete Workout</button>
+           </div> 
   }
 }
 
-export default connect(null, { updateWorkout, setEditWorkoutForm, resetNewWorkoutForm })(EditWorkoutFormWrapper);
+export default connect(null, { updateWorkout, setEditWorkoutForm, resetNewWorkoutForm, deleteWorkout })(EditWorkoutFormWrapper);
