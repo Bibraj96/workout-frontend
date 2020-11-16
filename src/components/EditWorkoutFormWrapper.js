@@ -28,7 +28,7 @@ class EditWorkoutFormWrapper extends React.Component {
   }
   
   render() {
-    const { workout, handleSubmit, deleteWorkout, history } = this.props;
+    const { workout, deleteWorkout, history } = this.props;
     const workoutId = workout ? workout.id : null
     return <div>
               <WorkoutForm editMode handleSubmit={this.handleSubmit} /> {/* we're passing these to the WorkoutForm to be invoked*/}
