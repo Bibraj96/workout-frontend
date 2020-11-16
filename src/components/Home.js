@@ -1,9 +1,7 @@
 import React from 'react';
-import Login from './Login.js'
-import Signup from './Signup.js'
 import { Link } from 'react-router-dom'
 
-const Home = ({}) => {
+const Home = () => {
   return (
     <div>
       <h2>Welcome to Your Workout Journal!</h2>
