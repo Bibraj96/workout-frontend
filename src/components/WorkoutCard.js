@@ -8,6 +8,7 @@ const WorkoutCard = ({ workout }) => {
   <div>
     <h4>{workout.title}</h4>
     <p>{workout.date}</p>
+    <p>{workout.description}</p>
     <Link to={`/workouts/${workout.id}/edit`}>Edit Workout</Link>
   </div> :
   <p>Workout Card</p>

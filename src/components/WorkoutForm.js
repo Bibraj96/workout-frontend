@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 // Redux gives us a prop called updateNewWorkoutForm which, when invoked, Redux will dispatch
 const WorkoutForm = ({ formData, updateNewWorkoutForm, userId, workout, handleSubmit, editMode }) => {
-  const {title, date} = formData
+  const {title, date, description} = formData
 
   const handleChange = event => {
     const { name, value } = event.target
@@ -29,6 +29,12 @@ const WorkoutForm = ({ formData, updateNewWorkoutForm, userId, workout, handleSu
       name="date"
       onChange={handleChange}
       value={date}
+      /><br/>
+      <textarea
+      placeholder="Description" 
+      name="description"
+      onChange={handleChange}
+      value={description}
       /><br/>
       <input 
       type="submit" 

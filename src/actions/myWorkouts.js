@@ -63,6 +63,7 @@ export const createWorkout = (workoutData, history) => {
     const snakeWorkoutData = { // Only needed this for user_id, but did it for the others to keep consistent
       title: workoutData.title,
       date: workoutData.date,
+      description: workoutData.description,
       user_id: workoutData.userId
     }
     return fetch("http://localhost:3000/api/v1/workouts", {
@@ -91,7 +92,8 @@ export const updateWorkout = (workoutData, history) => {
   return dispatch => {
     const snakeWorkoutData = { // Only needed this for user_id, but did it for the others to keep consistent
       title: workoutData.title,
-      date: workoutData.date
+      date: workoutData.date,
+      description: workoutData.description
     }
     return fetch(`http://localhost:3000/api/v1/workouts/${workoutData.workoutId}`, {
       credentials: "include",

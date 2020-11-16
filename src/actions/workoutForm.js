@@ -16,7 +16,8 @@ export const resetNewWorkoutForm = () => {
 export const setEditWorkoutForm = workout => {
   const workoutFormData = { // Need to explicitly inform redux to populate the form fields with this 
     title: workout.title,
-    date: workout.date
+    date: workout.date,
+    description: workout.description
   }
   return {
     type: "SET_EDIT_FORM_DATA",
