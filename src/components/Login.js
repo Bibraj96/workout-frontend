@@ -24,25 +24,28 @@ const Login = ({loginFormData, updateLoginForm, login, history }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        placeholder="Username"
-        type="text" name="username" 
-        value={loginFormData.username}  
-        onChange={handleInputChange}
-      />
-      <input 
-        placeholder="Password" 
-        type="password" 
-        name="password" 
-        value={loginFormData.password}  
-        onChange={handleInputChange}
-      />
-      <input 
-        type="submit" 
-        value="Log In"
-      />
-    </form>
+    <div className="homeForm">
+      <h4 className="homeHeader">Login</h4>
+      <form onSubmit={handleSubmit}>
+        <input className="formInput"
+          placeholder="Username"
+          type="text" name="username" 
+          value={loginFormData.username}  
+          onChange={handleInputChange}
+        />
+        <input className="formInput"
+          placeholder="Password" 
+          type="password" 
+          name="password" 
+          value={loginFormData.password}  
+          onChange={handleInputChange}
+        /><br/>
+        <input className="newButton"
+          type="submit" 
+          value="Log In"
+        />
+      </form>
+    </div>
   )
 }
 

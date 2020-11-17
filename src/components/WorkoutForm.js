@@ -13,33 +13,35 @@ const WorkoutForm = ({ formData, updateNewWorkoutForm, userId, workout, handleSu
   }
 
   return (
-    <form onSubmit={event => {
-      event.preventDefault()
-      console.log("Got to WorkoutForm")
-      handleSubmit(formData) //passed down from either wrapper and invoked here
-      }}>
-      <input
-      placeholder="Title" 
-      name="title"
-      onChange={handleChange}
-      value={title}
-      /><br/>
-      <input
-      placeholder="YYYY-MM-DD" 
-      name="date"
-      onChange={handleChange}
-      value={date}
-      /><br/>
-      <textarea
-      placeholder="Description" 
-      name="description"
-      onChange={handleChange}
-      value={description}
-      /><br/>
-      <input 
-      type="submit" 
-      value={editMode ? "Update Workout" : "Create Workout"}/>
-    </form>
+    <div className="form">
+      <form onSubmit={event => {
+        event.preventDefault()
+        console.log("Got to WorkoutForm")
+        handleSubmit(formData) //passed down from either wrapper and invoked here
+        }}>
+        <input className="formInput"
+        placeholder="Title" 
+        name="title"
+        onChange={handleChange}
+        value={title}
+        /><br/>
+        <input className="formInput"
+        placeholder="YYYY-MM-DD" 
+        name="date"
+        onChange={handleChange}
+        value={date}
+        /><br/>
+        <textarea className="formInput"
+        placeholder="Description" 
+        name="description"
+        onChange={handleChange}
+        value={description}
+        /><br/>
+        <input className="newButton"
+        type="submit" 
+        value={editMode ? "Update Workout" : "Create Workout"}/>
+      </form>
+    </div>
 )}
 
 const mapStateToProps = state => {

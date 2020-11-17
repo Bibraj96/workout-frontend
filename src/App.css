@@ -1,13 +1,143 @@
+a { 
+  color: #3C3744;
+}
+
+.body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #FBFFF1;
+}
+
 .NavBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #3066BE;
+  -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5); 
+}
+
+.logoutButton {
+  margin-top: 15px;
+  margin-right: 15px;
+  color: #3C3744;
+  text-decoration: none;
+  background: #B0CFE0;
+  padding: 7px;
+  border-radius: 20px;
+}
+
+.getActive {
+  float: left;
+  color: #fbfff1;
+  margin-left: 15px;
+}
+
+.link {
+  margin-top: 20px;
+  color: #fbfff1;
 }
 
 a.active {
-  color: #1ca9c9;
+  color: #eee460;
 }
 
-.MainContainer {
+.workoutCard {
+	max-width: 450px;
+	padding: 30px;
+	margin: 50px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+	border: 6px solid #3066BE;
+  max-width: 35%;
+  display: grid;
   text-align: center;
+  border-radius: 25px;
+}
+
+.workouts {
+  max-width: 300px;
+	padding: 30px;
+	margin: 50px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #3066BE;
+  display: flexbox;
+  margin-top: 10px;
+  display: grid;
+  text-align: center;
+  color: #3066BE;
+}
+
+.form {
+	max-width: 450px;
+	padding: 30px;
+	margin: 50px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+	border: 6px solid #3066BE;
+}
+
+.formInput {
+  margin-left: 100px;
+  margin-bottom: 10px;
+  box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+  padding: 8px;
+	outline: none;
+	border: 1px solid #B0CFE0;
+	/* -webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out; */
+}
+
+.newButton {
+  margin-left: 100px;
+  color: #3C3744;
+  text-decoration: none;
+  background: #B0CFE0;
+  padding: 7px;
+  border-radius: 20px;
+}
+
+.deleteButton {
+  color: #fbfff1;
+  margin-left: 500px;
+  width: 425px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #FF4136;
+  padding: 20px;
+  border-radius: 50px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+
+.home {
+  max-width: 50%;
+  margin: 50px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #3066BE;
+  display: flexbox;
+  margin-top: 10px;
+  display: grid;
+  text-align: center;
+  color: #3066BE;
+}
+
+.homeHeader {
+  margin-left: 100px;
+}
+
+.homeForm {
+	max-width: 450px;
+	padding: 30px;
+	margin: 50px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+	border: 6px solid #3066BE;
 }

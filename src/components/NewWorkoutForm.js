@@ -3,7 +3,7 @@ import { createWorkout } from '../actions/myWorkouts'
 import WorkoutForm from './WorkoutForm.js'
 import { connect } from 'react-redux'
 
-const NewWorkoutFormWrapper = ({history, createWorkout}) => {
+const NewWorkoutForm = ({history, createWorkout}) => {
 
   const handleSubmit = (formData, userId) => {
     createWorkout({
@@ -15,4 +15,4 @@ const NewWorkoutFormWrapper = ({history, createWorkout}) => {
   return <WorkoutForm history={history} handleSubmit={handleSubmit} /> // we're passing these to the WorkoutForm to be invoked
 }
 
-export default connect(null, { createWorkout })(NewWorkoutFormWrapper);
+export default connect(null, { createWorkout })(NewWorkoutForm);

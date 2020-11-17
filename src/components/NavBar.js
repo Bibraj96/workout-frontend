@@ -7,9 +7,9 @@ const NavBar = ({ currentUser, loggedIn }) => {
 
   return (
     <div className="NavBar">
-      {currentUser ? <h4>Get active, {currentUser.username}!</h4> : ""}
-      <NavLink exact active="true" to="/workouts">My Workouts</NavLink>
-      <NavLink exact active="true" to="/workouts/new">New Workout</NavLink>
+      {currentUser ? <h4 className="getActive">Get active, {currentUser.username}!</h4> : ""}
+      <NavLink className="link" exact active="true" to="/workouts">My Workouts</NavLink>
+      <NavLink className="link" exact active="true" to="/workouts/new">New Workout</NavLink>
       { loggedIn ? <Logout /> : null }
     </div>
   )

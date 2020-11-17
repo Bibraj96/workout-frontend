@@ -8,8 +8,8 @@ import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import MyWorkouts from './components/MyWorkouts.js'
 import WorkoutCard from './components/WorkoutCard.js'
-import NewWorkoutFormWrapper from './components/NewWorkoutFormWrapper.js'
-import EditWorkoutFormWrapper from './components/EditWorkoutFormWrapper.js'
+import NewWorkoutForm from './components/NewWorkoutForm.js'
+import EditWorkoutForm from './components/EditWorkoutForm.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
             <Route exact path='/login' component={Login}/>
             <Route exact path='/' render={() => loggedIn ? <MyWorkouts /> : <Home />}/>
             <Route exact path='/workouts' component={MyWorkouts}/>
-            <Route exact path='/workouts/new' component={NewWorkoutFormWrapper}/> {/*when we use component=, props are implicitly provided*/} 
+            <Route exact path='/workouts/new' component={NewWorkoutForm}/> {/*when we use component=, props are implicitly provided*/} 
             <Route exact path='/workouts/:id' render={ props => {
               const workout = workouts.find(workout => workout.id == props.match.params.id)
               // console.log(props.match.params.id)
@@ -40,7 +40,7 @@ class App extends Component {
             <Route exact path='/workouts/:id/edit' render={ props => { //these props are whatever Route would've passed down as props
               const workout = workouts.find(workout => workout.id == props.match.params.id)
               // console.log(props.match.params.id)
-              return <EditWorkoutFormWrapper workout={workout} {...props} />
+              return <EditWorkoutForm workout={workout} {...props} />
               }
             }/>
           </Switch>

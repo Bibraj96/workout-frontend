@@ -5,7 +5,7 @@ const WorkoutCard = ({ workout }) => {
   return (
   // you could also use fragments instead of a div here too: <> </>
   workout ? 
-  <div>
+  <div className="workoutCard">
     <h4>{workout.title}</h4>
     <p>{workout.date}</p>
     <p>{workout.description}</p>

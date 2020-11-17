@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const MyWorkouts = ({ myWorkouts }) => {
   const workoutCards = myWorkouts.length > 0 ?
   myWorkouts.map(w =>
-    (<p key={w.id}><Link to={`/workouts/${w.id}`}>{w.title}<br/>{w.date}</Link></p>)) :
+    (<div className="workouts"><p key={w.id}><Link to={`/workouts/${w.id}`}>{w.title}<br/>{w.date}</Link></p></div>)) :
   null
 
   return (

@@ -5,7 +5,7 @@ import WorkoutForm from './WorkoutForm.js'
 import { connect } from 'react-redux'
 // We need to make this a class component so that we can populate the edit form fields using a componentDidMount
 
-class EditWorkoutFormWrapper extends React.Component {
+class EditWorkoutForm extends React.Component {
 
   componentDidMount() {
     this.props.workout && this.props.setEditWorkoutForm(this.props.workout)
@@ -32,9 +32,9 @@ class EditWorkoutFormWrapper extends React.Component {
     const workoutId = workout ? workout.id : null
     return <div>
               <WorkoutForm editMode handleSubmit={this.handleSubmit} /> {/* we're passing these to the WorkoutForm to be invoked*/}
-              <button onClick={() => deleteWorkout(workoutId, history)}>Delete Workout</button>
+              <button className="deleteButton" onClick={() => deleteWorkout(workoutId, history)}>Delete Workout</button>
            </div> 
   }
 }
 
-export default connect(null, { updateWorkout, setEditWorkoutForm, resetNewWorkoutForm, deleteWorkout })(EditWorkoutFormWrapper);
+export default connect(null, { updateWorkout, setEditWorkoutForm, resetNewWorkoutForm, deleteWorkout })(EditWorkoutForm);
