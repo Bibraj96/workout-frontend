@@ -15,7 +15,7 @@ const WorkoutForm = ({ formData, updateNewWorkoutForm, handleSubmit, editMode })
       <form onSubmit={event => {
         event.preventDefault()
         console.log("Got to WorkoutForm")
-        handleSubmit(formData) //passed down from either form and invoked here
+        handleSubmit(formData)
         }}>
         <input className="formInput"
         placeholder="Title" 

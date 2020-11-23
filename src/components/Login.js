@@ -13,7 +13,7 @@ const Login = ({loginFormData, updateLoginForm, login, history }) => {
     const { name, value } = event.target
     const updatedFormInfo = {
       ...loginFormData,
-      [name]: value
+      [name]: value // name property is a string, which is now inside of an object, so this needs square brackets. Syntax error otherwise.
     }
     updateLoginForm(updatedFormInfo)
   }
@@ -29,7 +29,8 @@ const Login = ({loginFormData, updateLoginForm, login, history }) => {
       <form onSubmit={handleSubmit}>
         <input className="formInput"
           placeholder="Username"
-          type="text" name="username" 
+          type="text"
+          name="username" 
           value={loginFormData.username}  
           onChange={handleInputChange}
         />
@@ -50,7 +51,6 @@ const Login = ({loginFormData, updateLoginForm, login, history }) => {
 }
 
 // {props: {username: "blendi", password: "password"}}
-// You can either use props.username, or use destructuring
 const mapStateToProps = state => {
   return {
     loginFormData: state.loginForm
@@ -58,4 +58,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { updateLoginForm, login })(Login)
-// updateLoginForm again, is using the truncated version of updateLoginForm: updateLoginForm

@@ -13,7 +13,6 @@ const MyWorkouts = ({ myWorkouts }) => {
   )
 }
 
-//takes state of store as argument, which we then destructure 
 const mapStateToProps = ({myWorkouts}) => {
   return {
     myWorkouts
