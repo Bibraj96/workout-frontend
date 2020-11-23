@@ -30,7 +30,7 @@ class App extends Component {
             <Route exact path='/login' component={Login}/>
             <Route exact path='/' render={() => loggedIn ? <MyWorkouts /> : <Home />}/>
             <Route exact path='/workouts' component={MyWorkouts}/>
-            <Route exact path='/workouts/new' component={NewWorkoutForm}/> {/*when we use component=, props are implicitly provided*/} 
+            <Route exact path='/workouts/new' component={NewWorkoutForm}/>
             <Route exact path='/workouts/:id' render={ props => {
               const workout = workouts.find(workout => workout.id == props.match.params.id)
               // console.log(props.match.params.id)
