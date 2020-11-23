@@ -49,8 +49,6 @@ const Login = ({loginFormData, updateLoginForm, login, history }) => {
   )
 }
 
-// This gives us access to these chunks of state from the store as props
-// We pass these props into the argument of Login on line 4
 // {props: {username: "blendi", password: "password"}}
 // You can either use props.username, or use destructuring
 const mapStateToProps = state => {

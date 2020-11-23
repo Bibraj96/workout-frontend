@@ -7,8 +7,8 @@ const Logout = ({ logout, history }) => {
 
   return (
     <form onSubmit={(event) => {
-        event.preventDefault() // Prevent refresh
-        logout() // Fire logout action
+        event.preventDefault()
+        logout()
         history.push('/') // Go back to home page after logout
       }
     }>

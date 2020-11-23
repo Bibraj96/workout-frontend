@@ -12,7 +12,7 @@ const NewWorkoutForm = ({history, createWorkout}) => {
     }, history)
   }
   
-  return <WorkoutForm history={history} handleSubmit={handleSubmit} /> // we're passing these to the WorkoutForm to be invoked
+  return <WorkoutForm history={history} handleSubmit={handleSubmit} />
 }
 
 export default connect(null, { createWorkout })(NewWorkoutForm);
