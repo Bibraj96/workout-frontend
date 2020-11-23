@@ -11,7 +11,6 @@ import signupForm from './reducers/signupForm.js'
 import workoutForm from './reducers/workoutForm.js'
 
 const reducer = combineReducers({
-  // setting state equal to what the reducer returns
   currentUser,
   loginForm,
   myWorkouts,

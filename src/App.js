@@ -37,7 +37,7 @@ class App extends Component {
               return <WorkoutCard workout={workout} {...props} />
               }
             }/>
-            <Route exact path='/workouts/:id/edit' render={ props => { //these props are whatever Route would've passed down as props
+            <Route exact path='/workouts/:id/edit' render={ props => {
               const workout = workouts.find(workout => workout.id == props.match.params.id)
               // console.log(props.match.params.id)
               return <EditWorkoutForm workout={workout} {...props} />
