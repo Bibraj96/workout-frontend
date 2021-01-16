@@ -84,7 +84,8 @@ export const createWorkout = (workoutData, history) => {
         history.push(`/workouts/${workout.id}`)
       }
     })
-    .catch(console.log)
+    .catch(console.log) 
+    // remember throw new Error() whatever is passed in here, is sent to catch
   }
 }
 
