@@ -12,7 +12,7 @@ const Logout = ({ logout, history }) => {
         history.push('/') // Go back to home page after logout
       }
     }>
-      <input className="logoutButton" type="submit" value="Log Out"/>
+      <input className="btn" type="submit" value="Log Out"/>
     </form>
   )
 }
