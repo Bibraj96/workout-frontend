@@ -40,7 +40,8 @@ a {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-weight: 700;
   line-height: 1.2;
 }
@@ -85,9 +86,14 @@ h3 {
   color: #fff;
   padding: 10px 25px;
   margin: 0 5px;
+  text-align: center;
 }
 
 .navbar a:hover {
   color: var(--tertiary-color);
   border-bottom: var(--tertiary-color) 2px solid;
+}
+
+.logout {
+  justify-self: center;
 }
