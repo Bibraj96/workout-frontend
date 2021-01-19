@@ -97,3 +97,17 @@ h4 {
 .logout {
   justify-self: center;
 }
+
+/* Workouts */
+
+#workouts-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 30px;
+}
+
+.workout {
+  border: 2px solid var(--tertiary-color);
+  text-align: center;
+}
