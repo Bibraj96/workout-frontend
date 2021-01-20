@@ -6,7 +6,7 @@ const MyWorkouts = ({ myWorkouts }) => {
   const workoutCards = myWorkouts.length > 0 ?
     <div id="workouts-container">
       {myWorkouts.map(w =>
-      (<div className="workout" key={w.id}><p><Link to={`/workouts/${w.id}`}>{w.title}<br/>{w.date}</Link></p></div>))}
+      (<Link to={`/workouts/${w.id}`} key={w.id}><div className="workout"><p>{w.title}<br/>{w.date}</p></div></Link>))}
     </div> :
   null
 
