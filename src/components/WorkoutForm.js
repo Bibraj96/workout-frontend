@@ -12,6 +12,7 @@ const WorkoutForm = ({ formData, updateNewWorkoutForm, handleSubmit, editMode })
 
   return (
     <div className="form">
+      <h2>Add a New Workout</h2><br></br>
       <form onSubmit={event => {
         event.preventDefault()
         console.log("Got to WorkoutForm")
@@ -35,7 +36,7 @@ const WorkoutForm = ({ formData, updateNewWorkoutForm, handleSubmit, editMode })
         onChange={handleChange}
         value={description}
         /><br/>
-        <input className="newButton"
+        <input className="btn newButton"
         type="submit" 
         value={editMode ? "Update Workout" : "Create Workout"}/>
       </form>
