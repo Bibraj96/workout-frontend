@@ -57,7 +57,6 @@ h4 {
 
 .btn:hover {
   cursor: pointer;
-  color: var(--tertiary-color);
   background-color: var(--primary-color);
 }
 
@@ -138,8 +137,16 @@ i {
 /* Form */
 
 .form {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(1, 0.5fr);
   align-items: center;
   justify-content: center;
   margin: 50px;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 10px;
+  margin-bottom: 0.5rem;
 }
